@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pengenalan Cerita – Misteri di Sebalik Sungai</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#F5008F;--matcha:#9DBB69;--sp:#F4A6B8;--sr:#E87991;--cream:#FFF4E6;--white:#FFFCF8;--deep:#526B4C;--gold:#d9a93c}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden;overflow-x:clip;font-family:Nunito,sans-serif;color:#3d3a33;background:#cfeab0}
+h2,h3,button,.rib,.pill{font-family:Fredoka,sans-serif}
+#bgfix{position:fixed;inset:0;z-index:-1}#bgfix svg{width:100%;height:100%;display:block}
+.cloud{animation:dr 70s linear infinite alternate}@keyframes dr{to{transform:translateX(140px)}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sw 4s ease-in-out infinite alternate}@keyframes sw{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.flow{stroke-dasharray:26 20;animation:fl 2.4s linear infinite}@keyframes fl{to{stroke-dashoffset:-92}}
+.pet{position:fixed;top:-5vh;z-index:0;font-size:20px;pointer-events:none;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(60px,110vh) rotate(360deg)}}
+.bf{position:fixed;z-index:0;font-size:28px;pointer-events:none;animation:fly 14s ease-in-out infinite alternate}
+@keyframes fly{0%{transform:translate(5vw,60vh)}50%{transform:translate(55vw,30vh) rotate(10deg)}100%{transform:translate(85vw,70vh)}}
+main{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.hero{position:relative}.hero img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(#000 88%,transparent);mask-image:linear-gradient(#000 88%,transparent)}
+.down{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);width:clamp(34px,5vw,50px);aspect-ratio:1;border-radius:50%;border:3px solid #fff;background:var(--pink);color:#FFD93B;font-size:22px;cursor:pointer;animation:bob 1.6s ease-in-out infinite;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+@keyframes bob{50%{transform:translate(-50%,6px)}}
+section{padding:0 3%;margin-bottom:46px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.rv.in,html:not(.js) .rv{opacity:1;transform:none}
+.rib{display:table;margin:0 auto -18px;position:relative;z-index:2;padding:10px 40px;background:linear-gradient(var(--pink),#c4006f);color:#fff;font-weight:700;font-size:clamp(17px,2.6vw,28px);border-radius:8px;clip-path:polygon(0 0,100% 0,97% 50%,100% 100%,0 100%,3% 50%);text-shadow:0 2px 2px rgba(0,0,0,.3);filter:drop-shadow(0 4px 4px rgba(0,0,0,.3))}
+.frame{background:linear-gradient(135deg,#fffaf0,#f8e8c6);border:7px solid var(--gold);border-radius:28px;box-shadow:0 18px 34px rgba(0,0,0,.28),inset 0 0 0 4px #fff4d9;padding:42px 4% 30px}
+.story{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:20px;align-items:start}
+.story .ill{width:100%;border-radius:18px;border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+#txt p{font-size:clamp(14px,1.45vw,16.5px);line-height:1.65;margin-bottom:12px;padding:4px 8px;border-radius:10px;transition:background .3s}
+#txt p.now{background:#ffe0ee;box-shadow:inset 4px 0 0 var(--pink)}
+.tts{background:linear-gradient(#fff,#ffe3f0);border:4px solid var(--sp);border-radius:20px;padding:14px;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.tts h3{font-size:15px;color:var(--pink);display:flex;gap:8px;align-items:center;line-height:1.15}.tts h3 span{font-size:26px}.tts small{display:block;color:#7a6a70;font:700 11px Nunito}
+.tb{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tb button{flex:1 1 44px;min-height:46px;border-radius:14px;border:3px solid #fff;background:radial-gradient(circle at 30% 20%,#ff7cc0,var(--pink) 65%,#b8006b);color:#fff;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 0 #9c0059;padding:4px}
+.tb button:disabled{opacity:.45;cursor:not-allowed}.tb button b{display:block;font-size:19px;line-height:1}
+.tts label{display:block;font:700 13px Nunito;margin-top:8px}.tts select{width:100%;min-height:40px;border-radius:12px;border:3px solid var(--sp);padding:4px 8px;font:700 14px Nunito;background:#fff;color:var(--deep)}
+#st{margin-top:10px;font:800 13px/1.35 Nunito;color:var(--deep);min-height:36px}#st.warn{color:#b3003e}
+#alt{display:none;margin-top:8px;padding:8px 12px;border-radius:99px;border:2px solid var(--pink);background:#fff;color:var(--pink);font:700 12px Fredoka;cursor:pointer}
+.big{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px auto 0;padding:14px 34px;max-width:100%;border-radius:99px;border:5px solid #fff;background:linear-gradient(var(--pink),#c4006f);color:#fff;font-size:clamp(15px,2vw,22px);font-weight:700;cursor:pointer;box-shadow:0 8px 0 #9c0059,0 16px 26px rgba(245,0,143,.45);transition:transform .2s}
+.big:hover,.big:focus-visible{transform:translateY(-3px) scale(1.03)}.big i{font-style:normal;color:#FFD93B}
+.chars{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:40px 3% 24px}
+.card{border-radius:22px 22px 18px 18px;border:4px solid #fff;padding:6px 6px 12px;text-align:center;box-shadow:0 10px 18px rgba(0,0,0,.25);transition:transform .25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px) rotate(-1deg)}
+.card img{width:100%;height:auto;border-radius:16px 16px 6px 6px;display:block}
+.pill{display:block;margin:-10px auto 8px;position:relative;padding:3px 16px;border-radius:99px;color:#fff;font-weight:700;font-size:17px;border:3px solid #fff;width:max-content;max-width:94%}
+.card p{font-size:13px;font-weight:700;line-height:1.3;padding:0 4px;flex:1}.card .ic{font-size:28px;margin:6px 0}
+.card button{margin:0 auto;padding:8px 14px;min-height:40px;border-radius:99px;border:3px solid #fff;color:#fff;font-weight:700;font-size:13px;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.c1{background:linear-gradient(#e3f4c8,#b9dc86)}.c2{background:linear-gradient(#ffd6e8,#ff9fc7)}.c3{background:linear-gradient(#cfe6ff,#8fc2f5)}.c4{background:linear-gradient(#ffd9e4,#f9a2bd)}.c5{background:linear-gradient(#ffe2b8,#fbb86a)}
+.c1 .pill,.c1 button{background:#4f8a2f}.c2 .pill,.c2 button{background:#e0007f}.c3 .pill,.c3 button{background:#2b6fc9}.c4 .pill,.c4 button{background:#e8466f}.c5 .pill,.c5 button{background:#d9731a}
+.quiz{display:grid;grid-template-columns:.9fr 2fr 1.4fr .8fr;gap:14px;align-items:stretch}
+.board{background:#2f3b33;border:7px solid #b98650;border-radius:14px;color:#fff;padding:14px;text-align:center;transform:rotate(-2deg);font:700 15px/1.4 Fredoka;box-shadow:0 8px 14px rgba(0,0,0,.3)}.board span{font-size:34px;display:block}
+.qp,.fb,.sc{border-radius:18px;padding:14px;background:#fffdf7;border:3px dashed var(--sr)}
+.qp .tag{display:table;margin:0 auto 8px;background:var(--pink);color:#fff;font:700 14px Fredoka;padding:3px 18px;border-radius:99px}
+#qt{text-align:center;font:700 clamp(15px,1.7vw,19px)/1.3 Nunito;margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 12px;border-radius:99px;border:3px solid #fff;background:linear-gradient(#d9ecb9,#b4d686);font:800 15px Nunito;color:var(--deep);cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.18);text-align:left}
+.opt b{flex:none;width:26px;height:26px;border-radius:50%;background:#4f8a2f;color:#fff;display:grid;place-items:center;font:700 14px Fredoka}
+.opt.ok{background:linear-gradient(#ffd0e8,#ff8cc4);border-color:var(--pink)}.opt.no{background:#e6e0e0;color:#999;text-decoration:line-through}.opt:disabled{cursor:default}
+.fb{background:linear-gradient(#f1fae0,#dff0bf);border:3px solid var(--matcha);text-align:center;display:flex;flex-direction:column;justify-content:center;gap:8px}
+#fh{font:700 22px Fredoka;color:#3f8a2f}#fh.bad{color:#c4003e}#ft{font-size:14px;font-weight:700;line-height:1.35}
+.nx{padding:10px 14px;min-height:42px;border-radius:99px;border:3px solid #fff;background:linear-gradient(var(--pink),#c4006f);color:#fff;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 4px 0 #9c0059}.nx:disabled{opacity:.4;cursor:not-allowed}
+.sc{background:linear-gradient(#b98650,#8a5a30);border:4px solid #6b4423;color:#fff;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;font:700 14px Fredoka}
+#sn{font-size:28px;color:#FFD93B}.bar{width:100%;height:12px;border-radius:99px;background:rgba(255,255,255,.35);overflow:hidden}.bar i{display:block;height:100%;width:0;background:#FFD93B;transition:width .4s}
+.sc button{min-height:40px;padding:6px 14px;border-radius:99px;border:3px solid #fff;background:var(--pink);color:#fff;font-weight:700;cursor:pointer}
+#res{display:none;text-align:center;padding:10px}#res h3{font-size:clamp(24px,4vw,40px);color:var(--pink);text-shadow:0 2px 0 #fff}#res .mk{font:700 clamp(20px,3vw,30px) Fredoka;color:var(--deep);margin:8px 0}
+.rb{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}.rb button{padding:10px 18px;min-height:44px;border-radius:99px;border:3px solid #fff;background:var(--pink);color:#fff;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 4px 0 #9c0059}
+#rv{text-align:left;margin-top:12px;font-weight:700;font-size:14px}#rv div{padding:6px 10px;border-radius:10px;margin:4px 0;background:#fff}
+footer{position:relative;z-index:1;margin-top:20px;padding:56px 4% 30px;background:linear-gradient(var(--pink),#c4006f);clip-path:polygon(0 12%,10% 4%,25% 12%,40% 3%,50% 10%,60% 3%,75% 12%,90% 4%,100% 12%,100% 100%,0 100%);color:#fff;text-align:center}
+footer{overflow:hidden}footer .row>*{min-width:0}footer .row{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr);gap:14px;align-items:center}
+footer b{display:block;font:700 clamp(18px,2.8vw,32px) Fredoka;text-shadow:0 2px 3px rgba(0,0,0,.3)}footer p{font-weight:800;font-size:clamp(11px,1.3vw,15px)}
+.nav{padding:12px 16px;min-height:52px;border-radius:99px;border:4px solid #fff;color:#fff;font:700 clamp(12px,1.4vw,16px) Fredoka;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;gap:8px}
+.nav.g{background:linear-gradient(#5fa043,#3f7a2b)}.nav.rd{background:linear-gradient(#e8466f,#a8003f)}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(40,0,25,.6);display:none;align-items:center;justify-content:center;padding:14px}.modal.show{display:flex}
+.mbox{position:relative;width:min(760px,100%);max-height:92vh;overflow:auto;border-radius:26px;border:7px solid var(--pink);background:linear-gradient(#fff,#ffe9f4);padding:22px;display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;animation:pop .35s cubic-bezier(.3,1.5,.5,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.mbox img{width:100%;border-radius:20px;border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.25);align-self:start}
+.mbox h2{display:inline-block;padding:4px 22px;border-radius:99px;color:#fff;font-size:26px;border:3px solid #fff}.mbox dl{margin-top:10px}.mbox dt{font:700 15px Fredoka;color:var(--pink);margin-top:8px}.mbox dd{font-weight:700;font-size:14.5px;line-height:1.4}
+.mx{position:absolute;top:6px;right:8px;width:36px;height:36px;border-radius:50%;border:3px solid #fff;background:var(--pink);color:#fff;font:700 16px Fredoka;cursor:pointer}
+.mt{grid-column:1/-1;justify-self:center;padding:10px 30px;min-height:44px;border-radius:99px;border:4px solid #fff;background:var(--pink);color:#fff;font:700 15px Fredoka;cursor:pointer;box-shadow:0 4px 0 #9c0059}
+.cur{position:fixed;top:0;bottom:0;width:51%;z-index:90;pointer-events:none;background:repeating-linear-gradient(90deg,#f5008f 0 28px,#ff5db4 40px,#c4006f 58px,#f5008f 70px);box-shadow:0 0 40px rgba(0,0,0,.5);transition:transform 1.8s cubic-bezier(.7,0,.3,1) .2s}.cur.l{left:0}.cur.r{right:0}
+.cur:after{content:"🎀";position:absolute;top:45%;font-size:56px}.cur.l:after{right:-18px}.cur.r:after{left:-18px}
+.open .cur.l{transform:translateX(-102%)}.open .cur.r{transform:translateX(102%)}
+button:focus-visible,select:focus-visible{outline:3px solid #FFD93B;outline-offset:2px}
+@media(max-width:980px){.story{grid-template-columns:1fr}.story .ill{max-width:420px;margin:auto}.chars{grid-template-columns:repeat(3,1fr)}.quiz{grid-template-columns:1fr 1fr}.board,.qp{grid-column:1/-1}.board{transform:none}footer .row{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.chars{grid-template-columns:repeat(2,1fr);gap:10px}.quiz{grid-template-columns:1fr}.opts{grid-template-columns:1fr}.mbox{grid-template-columns:1fr}.mbox img{max-width:240px;margin:auto}.frame{padding:36px 3% 24px;border-width:5px}.rib{padding:8px 26px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.cur,.pet,.bf{display:none}.rv{opacity:1;transform:none}}
+</style></head><body>
+<div class="cur l"></div><div class="cur r"></div>
+<div id="bgfix"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd8ee"/><stop offset=".45" stop-color="#d8f1e8"/></linearGradient><linearGradient id="rv2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fe0df"/><stop offset="1" stop-color="#1bb0c4"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#sk)"/><g fill="#fff" opacity=".9" class="cloud"><ellipse cx="260" cy="110" rx="110" ry="34"/><ellipse cx="330" cy="92" rx="70" ry="34"/><ellipse cx="1000" cy="160" rx="130" ry="36"/></g>
+<path d="M-50 420 L200 220 L420 400 L650 190 L900 410 L1200 210 L1450 400 L1650 260 V600H-50Z" fill="#8fb7a0"/><path d="M-50 480 L300 330 L560 470 L820 320 L1100 480 L1400 340 L1650 470 V640H-50Z" fill="#6f9e6a"/>
+<path d="M-50 520 Q400 440 800 520 T1650 500 V900H-50Z" fill="#7fb356"/><g fill="#3f8a4a"><circle cx="90" cy="470" r="90"/><circle cx="1500" cy="470" r="100"/><circle cx="1380" cy="500" r="70"/></g>
+<path d="M300 900 Q520 700 760 640 T1250 560 L1320 560 Q1000 640 800 720 T520 900Z" fill="url(#rv2)" opacity=".9"/><path class="flow" d="M520 880 Q700 740 900 670 T1250 580" stroke="#fff" stroke-width="5" fill="none" opacity=".7"/>
+<path d="M-50 760 Q400 690 800 750 T1650 720 V900H-50Z" fill="#5fa043"/>
+<g class="sway"><path d="M120 880V790" stroke="#3f8a4a" stroke-width="6"/><circle cx="120" cy="782" r="22" fill="#F5008F"/><circle cx="120" cy="782" r="8" fill="#FFD93B"/></g><g class="sway" style="animation-delay:-1s"><path d="M1480 880V800" stroke="#3f8a4a" stroke-width="6"/><circle cx="1480" cy="792" r="22" fill="#F4A6B8"/><circle cx="1480" cy="792" r="8" fill="#FFD93B"/></g><g class="sway" style="animation-delay:-2s"><path d="M260 890V820" stroke="#3f8a4a" stroke-width="6"/><circle cx="260" cy="812" r="18" fill="#E87991"/><circle cx="260" cy="812" r="7" fill="#FFD93B"/></g><g class="sway" style="animation-delay:-.6s"><path d="M1340 890V820" stroke="#3f8a4a" stroke-width="6"/><circle cx="1340" cy="812" r="18" fill="#F5008F"/><circle cx="1340" cy="812" r="7" fill="#FFD93B"/></g></svg></div>
+<div class="bf">🦋</div>
+<main>
+<header class="hero"><img src="p2-hero.jpg" alt="Misi bermula di sini! Pengenalan Cerita – Kenali Sungai Harmoni dan Lima Sahabat Pengembaraan" width="1024" height="372"><button class="down" id="dn" aria-label="Tatal ke bawah">⌄</button></header>
+
+<section id="s1" class="rv"><div class="rib">KISAH SUNGAI HARMONI</div><div class="frame"><div class="story">
+<img class="ill" src="p2-story.jpg" alt="Sungai Harmoni yang mula tercemar" width="256" height="249">
+<div id="txt"><p>Di sebuah kampung yang indah bernama Kampung Seri Damai, mengalir sebuah sungai yang dikenali sebagai Sungai Harmoni. Dahulu, sungai ini sangat bersih dan menjadi sumber kehidupan penduduk kampung.</p><p>Namun begitu, keadaan mula berubah apabila sampah dan sisa buangan ditemui di sepanjang sungai. Air sungai yang dahulunya jernih kini semakin tercemar.</p><p>Pelbagai petunjuk mula ditemui. Penduduk kampung berasa bimbang dan memerlukan bantuan untuk memahami punca masalah tersebut.</p><p>Lima orang sahabat mengambil keputusan untuk menjalankan penyiasatan. Mereka perlu mendengar maklumat dengan teliti, memahami petunjuk dan berbincang untuk mencari jalan penyelesaian.</p><p>Mampukah mereka membantu memulihkan Sungai Harmoni?</p></div>
+<div class="tts"><h3><span>🔊</span><div>Dengar Teks<small>(Bahasa Melayu Baku)</small></div></h3>
+<div class="tb"><button id="bPlay"><b>▶</b>Main</button><button id="bPause" disabled><b>⏸</b>Jeda</button><button id="bRes" disabled><b>⏯</b>Sambung</button><button id="bStop" disabled><b>⏹</b>Henti</button><button id="bAgain"><b>↺</b>Semula</button></div>
+<label for="sp">Kelajuan</label><select id="sp"><option value=".8">Perlahan</option><option value=".95" selected>Normal</option><option value="1.15">Sederhana Pantas</option></select>
+<label for="vo" id="voL" style="display:none">Suara</label><select id="vo" style="display:none"></select>
+<div id="st" role="status" aria-live="polite">Tekan MULA DENGAR CERITA untuk mendengar.</div><button id="alt">Guna suara lain</button></div></div>
+<button class="big" id="bStart"><span>📖</span> MULA DENGAR CERITA <i>▶</i></button></div></section>
+
+<section id="s2" class="rv"><div class="rib">KENALI LIMA SAHABAT PENGEMBARAAN</div><div class="chars" id="chars"></div></section>
+
+<section id="s3" class="rv"><div class="rib" style="font-size:clamp(16px,2.4vw,26px)">JOM KENALI SAHABAT KITA!</div><div class="frame"><p style="text-align:center;font:700 clamp(14px,1.8vw,19px) Fredoka;color:#b8711a;margin-bottom:12px">Aktiviti Mini – Siapa Saya?</p>
+<div class="quiz" id="quiz"><div class="board"><span>💡</span>Arahan:<br>Baca soalan dengan teliti dan pilih jawapan yang paling tepat.</div>
+<div class="qp"><div class="tag" id="qn">Soalan 1 / 5</div><div id="qt"></div><div class="opts" id="op"></div></div>
+<div class="fb" aria-live="polite"><div id="fh">Pilih satu jawapan</div><div id="ft">Jawapan anda akan disemak di sini.</div><button class="nx" id="nx" disabled>Soalan Seterusnya ➜</button></div>
+<div class="sc"><div>Skor Semasa</div><div id="sn">⭐ 0 / 5</div><div class="bar"><i id="pb"></i></div><div id="an" style="font:700 12px Nunito">Dijawab: 0/5</div><button id="rs">↺ Main Semula</button></div></div>
+<div id="res"><h3>TAHNIAH, PENJELAJAH!</h3><p style="font-weight:800">Anda telah berjaya mengenali lima sahabat pengembaraan.</p><div class="mk" id="mk"></div><div class="rb"><button id="r1">MAIN SEMULA</button><button id="r2">KEMBALI KE SOALAN</button><button id="r3">LIHAT SEMULA JAWAPAN</button></div><div id="rv"></div></div></div></section>
+</main>
+<footer><div class="row"><button class="nav g" data-k="PAGE_HOME_URL">🏠 KEMBALI KE LAMAN UTAMA</button><div><b>MISTERI DI SEBALIK SUNGAI</b><p>"Dengar dengan teliti, fahami maklumat dan bertindak demi kelestarian alam."</p></div><button class="nav rd" data-k="PAGE_TEACHER_URL">🎓 TERUSKAN KE PANDUAN GURU ➜</button></div></footer>
+<div class="modal" id="md" role="dialog" aria-modal="true" aria-labelledby="mn"><div class="mbox"><button class="mx" id="mx" aria-label="Tutup">✕</button><img id="mi" alt=""><div><h2 id="mn"></h2><dl><dt>🙋 Pengenalan</dt><dd id="m1"></dd><dt>🎯 Peranan</dt><dd id="m2"></dd><dt>⭐ Kekuatan</dt><dd id="m3"></dd><dt>💬 Dialog</dt><dd id="m4"></dd></dl></div><button class="mt" id="mt">TUTUP</button></div></div>
+<script>
+/* ===== EDIT: URL halaman Google Sites (alamat penuh https://...) ===== */
+const URLS={PAGE_HOME_URL:"",PAGE_TEACHER_URL:""};
+/* ===== Data watak ===== */
+const CH=[
+{n:"HAIKAL",c:"c1",img:"p2-c1.jpg",big:"p2-haikal-full.jpg",ic:"👥",i:"Ketua kumpulan yang berani dan bertanggungjawab.",r:"Memimpin kumpulan, menyusun strategi dan memastikan setiap ahli menjalankan tugas.",k:"Berani, yakin dan mampu membuat keputusan dengan bijak.",d:"Jom, kita bekerjasama mencari punca pencemaran dan membantu memulihkan Sungai Harmoni!"},
+{n:"DAMIA",c:"c2",img:"p2-c2.jpg",ic:"📓",i:"Bijak, teliti dan mencatat maklumat penting.",r:"Merekod maklumat yang didengar dan menyusun catatan sepanjang pengembaraan.",k:"Teliti, sistematik dan peka terhadap maklumat.",d:"Saya akan catat semua maklumat penting supaya kita tidak terlepas sebarang petunjuk!"},
+{n:"RAJU",c:"c3",img:"p2-c3.jpg",ic:"💻",i:"Mahir menggunakan teknologi dan menganalisis maklumat.",r:"Menggunakan teknologi untuk meneliti maklumat dan membantu kumpulan memahami petunjuk.",k:"Kreatif, bijak berfikir dan mahir menggunakan teknologi.",d:"Maklumat yang kita kumpulkan boleh dianalisis untuk mencari jawapan!"},
+{n:"MEI MEI",c:"c4",img:"p2-c4.jpg",ic:"🔍",i:"Pemerhati yang teliti dan gemar mencari petunjuk.",r:"Memerhatikan keadaan sungai dan mengenal pasti petunjuk yang ditemui.",k:"Teliti, peka dan mempunyai pemerhatian yang baik.",d:"Lihat di sana! Ada sesuatu yang mungkin menjadi petunjuk kepada masalah sungai ini!"},
+{n:"ARIQ",c:"c5",img:"p2-c5.jpg",ic:"📷",i:"Ceria dan yakin menyampaikan maklumat kepada kumpulan.",r:"Menyampaikan hasil pemerhatian dan cadangan kumpulan secara lisan.",k:"Berkeyakinan, ceria dan mudah berkomunikasi.",d:"Saya akan bantu menyampaikan hasil penyiasatan kita kepada penduduk kampung!"}];
+const QZ=[
+{q:"Siapakah yang bertanggungjawab mencatat maklumat penting?",o:["Haikal","Damia","Raju","Mei Mei"],a:1,e:"Damia bijak, teliti dan mencatat maklumat penting semasa pengembaraan."},
+{q:"Siapakah yang menggunakan teknologi untuk menganalisis maklumat?",o:["Ariq","Haikal","Raju","Mei Mei"],a:2,e:"Raju mahir menggunakan teknologi untuk meneliti dan menganalisis maklumat."},
+{q:"Siapakah yang gemar memerhatikan keadaan sungai dan mencari petunjuk?",o:["Damia","Mei Mei","Ariq","Haikal"],a:1,e:"Mei Mei ialah pemerhati yang teliti dan gemar mencari petunjuk."},
+{q:"Siapakah yang bertanggungjawab memimpin kumpulan dan menyusun strategi?",o:["Haikal","Raju","Ariq","Damia"],a:0,e:"Haikal ialah ketua kumpulan yang memimpin dan menyusun strategi."},
+{q:"Siapakah yang menyampaikan hasil pemerhatian dan cadangan kumpulan secara lisan?",o:["Mei Mei","Damia","Raju","Ariq"],a:3,e:"Ariq ceria dan yakin menyampaikan maklumat kepada kumpulan."}];
+/* ===== Kod di bawah tidak perlu diubah ===== */
+const $=i=>document.getElementById(i),rm=matchMedia("(prefers-reduced-motion:reduce)").matches,L="ABCD";
+document.documentElement.classList.add("js");
+document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{const u=URLS[b.dataset.k];u?window.open(u,"_top"):alert("URL belum diisi: "+b.dataset.k)});
+addEventListener("load",()=>setTimeout(()=>{document.body.classList.add("open");setTimeout(()=>document.querySelectorAll(".cur").forEach(c=>c.style.display="none"),2400)},250));
+$("dn").onclick=()=>$("s1").scrollIntoView({behavior:rm?"auto":"smooth"});
+if("IntersectionObserver"in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll(".rv").forEach(e=>io.observe(e))}else document.querySelectorAll(".rv").forEach(e=>e.classList.add("in"));
+if(!rm){for(let i=0;i<8;i++){const p=document.createElement("span");p.className="pet";p.textContent="🌸";p.style.cssText=`left:${Math.random()*95}vw;animation-duration:${14+Math.random()*12}s;animation-delay:-${Math.random()*20}s;font-size:${14+Math.random()*10}px`;document.body.appendChild(p)}}
+/* Kad watak + modal */
+CH.forEach((c,k)=>{const d=document.createElement("div");d.className="card "+c.c;d.innerHTML=`<img src="${c.img}" alt="${c.n}" loading="lazy"><span class="pill">${c.n}</span><p>${c.i}</p><div class="ic">${c.ic}</div><button data-i="${k}">KENALI SAYA</button>`;d.querySelector("button").onclick=()=>openM(k,d.querySelector("button"));$("chars").appendChild(d)});
+let lastBtn=null;const md=$("md");
+function openM(k,b){const c=CH[k];lastBtn=b;$("mi").src=c.big||c.img;$("mi").alt=c.n;const h=$("mn");h.textContent=c.n;h.style.background=getComputedStyle(b).backgroundColor;$("m1").textContent=c.i;$("m2").textContent=c.r;$("m3").textContent=c.k;$("m4").textContent="\u201C"+c.d+"\u201D";md.classList.add("show");$("mx").focus()}
+function closeM(){md.classList.remove("show");lastBtn&&lastBtn.focus()}
+$("mx").onclick=$("mt").onclick=closeM;md.onclick=e=>{if(e.target===md)closeM()};addEventListener("keydown",e=>{if(e.key==="Escape"&&md.classList.contains("show"))closeM()});
+/* Text-to-Speech */
+const ss=window.speechSynthesis,ps=[...document.querySelectorAll("#txt p")],st=$("st");let voices=[],tok=0,idx=0,useAny=false,state="idle";
+const isMY=v=>/^ms[-_]my$/i.test(v.lang);
+function setS(t,w){st.textContent=t;st.className=w?"warn":""}
+function btn(){$("bPause").disabled=state!=="play";$("bRes").disabled=state!=="pause";$("bStop").disabled=state==="idle"||state==="done"}
+function loadV(){if(!ss)return;voices=ss.getVoices();const my=voices.filter(isMY),vo=$("vo");vo.innerHTML="";const list=my.length?my:(useAny?voices:[]);list.forEach(v=>{const o=document.createElement("option");o.value=v.voiceURI;o.textContent=v.name+" ("+v.lang+")";vo.appendChild(o)});const show=list.length>1;vo.style.display=$("voL").style.display=show?"block":"none"}
+if(ss){loadV();ss.onvoiceschanged=loadV}
+function pick(){const my=voices.filter(isMY);const sel=voices.find(v=>v.voiceURI===$("vo").value);if(sel&&(isMY(sel)||useAny))return sel;return my[0]||(useAny?(voices.find(v=>/^ms/i.test(v.lang))||null):null)}
+function clr(){ps.forEach(p=>p.classList.remove("now"))}
+function say(){const t=tok;if(idx>=ps.length){state="done";clr();btn();setS("Syabas! Anda telah selesai mendengar cerita Sungai Harmoni.");return}
+clr();ps[idx].classList.add("now");const u=new SpeechSynthesisUtterance(ps[idx].textContent);const v=pick();u.lang="ms-MY";if(v){u.voice=v;u.lang=v.lang}u.rate=parseFloat($("sp").value);
+u.onend=()=>{if(t!==tok)return;idx++;say()};u.onerror=e=>{if(t!==tok||e.error==="interrupted"||e.error==="canceled")return;state="idle";clr();btn();setS("Bacaan tidak dapat dimainkan pada peranti ini ("+e.error+").",1)};
+state="play";btn();setS("Sedang dibacakan… perenggan "+(idx+1)+" daripada "+ps.length);ss.speak(u)}
+function start(from){if(!ss){setS("Pelayar ini tidak menyokong Text-to-Speech. Cuba Chrome, Edge atau Safari.",1);return}
+loadV();if(!pick()){$("alt").style.display="inline-block";setS("Suara Bahasa Melayu Malaysia (ms-MY) tidak tersedia pada peranti ini. Anda boleh memasang suara itu dalam tetapan peranti, atau tekan \u201CGuna suara lain\u201D jika bersetuju.",1);return}
+$("alt").style.display="none";tok++;ss.cancel();idx=from||0;setTimeout(say,60)}
+$("bStart").onclick=$("bPlay").onclick=()=>start(state==="pause"?idx:0);$("bAgain").onclick=()=>start(0);
+$("bPause").onclick=()=>{if(state==="play"){ss.pause();state="pause";btn();setS("Dijeda. Tekan Sambung untuk meneruskan.")}};
+$("bRes").onclick=()=>{if(state==="pause"){ss.resume();state="play";btn();setS("Sedang dibacakan… perenggan "+(idx+1)+" daripada "+ps.length)}};
+$("bStop").onclick=()=>{tok++;ss.cancel();state="idle";clr();btn();setS("Bacaan dihentikan.")};
+$("bPlay").onclick=()=>{state==="pause"?$("bRes").click():start(0)};
+$("alt").onclick=()=>{useAny=true;loadV();const any=voices.find(v=>/^ms/i.test(v.lang));if(!any){setS("Tiada suara Bahasa Melayu lain tersedia pada peranti ini. Kami tidak menggunakan suara bahasa lain.",1);$("alt").style.display="none";return}start(0)};
+addEventListener("pagehide",()=>ss&&ss.cancel());
+/* Kuiz */
+let qi=0,score=0,first=[],done=[],locked=false,review=false;
+function rq(){const q=QZ[qi];$("qn").textContent=(review?"Semakan ":"Soalan ")+(qi+1)+" / "+QZ.length;$("qt").textContent=q.q;const op=$("op");op.innerHTML="";locked=false;
+q.o.forEach((t,k)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<b>${L[k]}</b>${t}`;b.onclick=()=>ans(k,b);if(review&&k===q.a){b.classList.add("ok");b.innerHTML+=" ✅"}op.appendChild(b)});
+$("nx").disabled=true;if(review){$("fh").textContent="Jawapan: "+L[q.a]+". "+q.o[q.a];$("fh").className="";$("ft").textContent=q.e;$("nx").disabled=false;$("nx").textContent=qi<QZ.length-1?"Seterusnya ➜":"Lihat Keputusan ➜";[...op.children].forEach(b=>b.disabled=true)}else{$("fh").textContent="Pilih satu jawapan";$("fh").className="";$("ft").textContent="Jawapan anda akan disemak di sini.";$("nx").textContent=qi<QZ.length-1?"Soalan Seterusnya ➜":"Lihat Keputusan ➜"}hud()}
+function hud(){const n=done.filter(Boolean).length;$("sn").textContent="⭐ "+score+" / "+QZ.length;$("pb").style.width=(n/QZ.length*100)+"%";$("an").textContent="Dijawab: "+n+"/"+QZ.length}
+function ans(k,b){if(locked||review)return;const q=QZ[qi];if(first[qi]===undefined)first[qi]=k;
+if(k===q.a){locked=true;if(!done[qi]){done[qi]=true;if(first[qi]===q.a)score++}b.classList.add("ok");b.innerHTML+=" ✅";[...$("op").children].forEach(x=>x.disabled=true);$("fh").textContent="✔ Betul! Syabas!";$("fh").className="";$("ft").textContent=q.e;$("nx").disabled=false;hud()}
+else{b.classList.add("no");b.disabled=true;$("fh").textContent="✖ Belum tepat. Cuba fikir semula!";$("fh").className="bad";$("ft").textContent="Pilih jawapan lain.";}}
+$("nx").onclick=()=>{if(qi<QZ.length-1){qi++;rq()}else fin()};
+function fin(){review=false;$("quiz").style.display="none";$("res").style.display="block";$("rv").innerHTML="";$("mk").textContent="JUMLAH MARKAH: "+score+"/"+QZ.length;$("res").scrollIntoView({behavior:rm?"auto":"smooth",block:"center"})}
+function reset(){qi=0;score=0;first=[];done=[];review=false;$("quiz").style.display="grid";$("res").style.display="none";rq()}
+$("rs").onclick=$("r1").onclick=reset;
+$("r2").onclick=()=>{qi=0;review=true;$("quiz").style.display="grid";$("res").style.display="none";rq();$("quiz").scrollIntoView({behavior:rm?"auto":"smooth",block:"center"})};
+$("r3").onclick=()=>{$("rv").innerHTML=QZ.map((q,k)=>`<div>${first[k]===q.a?"✅":"❌"} ${k+1}. ${q.q}<br><small>Jawapan betul: ${L[q.a]}. ${q.o[q.a]}${first[k]!==undefined&&first[k]!==q.a?" · Pilihan pertama anda: "+q.o[first[k]]:""}</small></div>`).join("")};
+rq();
+</script></body></html>
